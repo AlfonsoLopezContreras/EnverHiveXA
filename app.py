@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
@@ -20,4 +21,6 @@ def run_notification(hive_id):
 
 
 if __name__ == '__main__':
+    client = MongoClient('localhost', 27017)
+    db = client.test_database
     app.run()
